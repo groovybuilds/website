@@ -12,27 +12,27 @@ export default function ShopPage() {
       <Navbar />
 
       <section className="relative z-10">
-        <div className="mx-auto max-w-6xl px-6 pt-44 pb-44">
+        <div className="mx-auto max-w-6xl px-4 pt-28 pb-44 sm:px-6 sm:pt-44 sm:pb-44">
           <div className="mx-auto max-w-3xl text-center">
             <p
-              className="text-[11px] tracking-[0.28em] uppercase text-white/55 drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
+              className="text-[10px] sm:text-[11px] tracking-[0.28em] uppercase text-white/55 drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]"
               style={{ fontFamily: "'Monoton', cursive" }}
             >
               Groovy Builds • Shop
             </p>
 
             <h1
-              className="mt-6 text-4xl sm:text-5xl font-semibold text-white/90 drop-shadow-[0_0_18px_rgba(0,0,0,0.9)]"
+              className="mt-5 sm:mt-6 text-3xl sm:text-5xl font-semibold text-white/90 drop-shadow-[0_0_18px_rgba(0,0,0,0.9)]"
               style={{ fontFamily: "'Monoton', cursive" }}
             >
               Coming Soon.
             </h1>
 
-            <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/50">
+            <p className="mt-4 sm:mt-5 text-base sm:text-lg leading-relaxed text-white/50">
               Groovy merch and small-batch 3D printed tools.
             </p>
 
-            <div className="mt-10">
+            <div className="mt-8 sm:mt-10">
               <a
                 href="/"
                 className="text-sm text-white/45 hover:text-white/70 transition"
@@ -45,11 +45,8 @@ export default function ShopPage() {
       </section>
 
       {/* Subtle preview row */}
-      <section
-        className="fixed inset-x-0 bottom-0 z-20"
-        aria-label="Shop preview"
-      >
-        <div className="mx-auto max-w-6xl px-6 pb-6">
+      <section className="fixed inset-x-0 bottom-0 z-20" aria-label="Shop preview">
+        <div className="mx-auto max-w-6xl px-4 pb-4 sm:px-6 sm:pb-6">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
               {
