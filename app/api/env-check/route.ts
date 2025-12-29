@@ -1,3 +1,4 @@
+// app/api/env-check/route.ts
 export const runtime = "nodejs";
 
 export async function GET() {
