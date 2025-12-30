@@ -1,25 +1,26 @@
-// app/api/contact/route.ts
+import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
-
-import nodemailer from "nodemailer";
 
 type Payload = {
   service?: string;
   project_details?: string;
+  details?: string;
   location?: string;
   phone?: string;
   email?: string;
+  preferredContact?: string;
+  name?: string;
 };
 
 function safe(v: unknown) {
   return typeof v === "string" ? v.trim() : "";
 }
 
-function titleCase(s: string) {
-  return s
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, (m) => m.toUpperCase());
+function titleCaseService(v: string) {
+  const s = safe(v);
+  if (!s) return "General Inquiry";
+  return s.replace(/-/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
 export async function POST(req: Request) {
@@ -27,14 +28,20 @@ export async function POST(req: Request) {
     const body = (await req.json()) as Payload;
 
     const service = safe(body.service);
-    const project_details = safe(body.project_details);
+    // ✅ Accept either key so the frontend can stay exactly as-is
+    const project_details = safe(body.project_details) || safe(body.details);
     const location = safe(body.location);
     const phone = safe(body.phone);
     const email = safe(body.email);
+    const preferredContact = safe(body.preferredContact);
 
-    if (!project_details || !location || !phone || !email) {
+    if (!project_details || !location || (!phone && !email)) {
       return new Response(
-        JSON.stringify({ ok: false, error: "Missing required fields." }),
+        JSON.stringify({
+          ok: false,
+          error:
+            "Missing required fields. Please include project details, location, and either phone or email.",
+        }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
@@ -48,72 +55,58 @@ export async function POST(req: Request) {
         JSON.stringify({
           ok: false,
           error:
-            "Server is missing email env vars (GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO).",
+            "Email is not configured. Check env vars: GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO.",
         }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: GMAIL_USER,
-        pass: GMAIL_APP_PASSWORD,
+        pass: GMAIL_APP_PASSWORD, // Gmail App Password (16 chars)
       },
     });
 
-    const niceService = service ? titleCase(service) : "General Inquiry";
-    const subject = `${niceService} Inquiry — Groovy Builds`;
+    const niceService = titleCaseService(service);
 
-    // Email to owner
     const ownerText = [
       `Service: ${niceService}`,
+      preferredContact ? `Preferred Contact: ${preferredContact}` : "",
       ``,
       `Project Details:`,
       project_details,
       ``,
       `Location: ${location}`,
-      `Phone: ${phone}`,
-      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : "Phone: (not provided)",
+      email ? `Email: ${email}` : "Email: (not provided)",
       ``,
       `Submitted: ${new Date().toLocaleString()}`,
-    ].join("\n");
-
-    await transporter.sendMail({
-      from: `Groovy Builds Website <${GMAIL_USER}>`,
-      to: CONTACT_TO,
-      replyTo: email,
-      subject,
-      text: ownerText,
-    });
-
-    // Auto-reply to customer
-    const customerText = [
-      `Hello,`,
-      ``,
-      `Thank you for your interest in Groovy Builds.`,
-      ``,
-      `We’ve received your inquiry${
-        service ? ` regarding ${niceService.toLowerCase()}` : ""
-      } and it has been personally reviewed.`,
-      ``,
-      `A member of our team will be in touch within one to two business days.`,
-      ``,
-      `If you’d like to share photos, drawings, or supporting materials,`,
-      `please email them directly to groovybuilds@gmail.com.`,
-      ``,
-      `We appreciate the opportunity to connect and look forward to discussing your project.`,
-      ``,
-      `— Groovy Builds`,
-      `Nashville, TN`,
-    ].join("\n");
+    ]
+      .filter(Boolean)
+      .join("\n");
 
     await transporter.sendMail({
       from: `Groovy Builds <${GMAIL_USER}>`,
-      to: email,
-      subject: "We’ve received your inquiry — Groovy Builds",
-      text: customerText,
+      to: CONTACT_TO,
+      replyTo: email || undefined,
+      subject: `${niceService} Inquiry — Groovy Builds`,
+      text: ownerText,
     });
+
+    // Optional confirmation to the client (only if they provided email)
+    if (email) {
+      await transporter.sendMail({
+        from: `Groovy Builds <${GMAIL_USER}>`,
+        to: email,
+        subject: "We’ve received your inquiry — Groovy Builds",
+        text:
+          "Hello,\n\nThank you for your interest in Groovy Builds.\n\nWe’ve received your inquiry and a member of our team will be in touch within 1–2 business days.\n\n— Groovy Builds\nNashville, TN\n",
+      });
+    }
 
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
@@ -121,10 +114,7 @@ export async function POST(req: Request) {
     });
   } catch (err: any) {
     return new Response(
-      JSON.stringify({
-        ok: false,
-        error: err?.message || "Unknown server error",
-      }),
+      JSON.stringify({ ok: false, error: err?.message || "Unknown error" }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
