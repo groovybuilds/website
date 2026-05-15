@@ -27,6 +27,7 @@ export async function POST(req: Request) {
   try {
     const body = (await req.json()) as Payload;
 
+    const name = safe(body.name);
     const service = safe(body.service);
     // ✅ Accept either key so the frontend can stay exactly as-is
     const project_details = safe(body.project_details) || safe(body.details);
@@ -35,12 +36,12 @@ export async function POST(req: Request) {
     const email = safe(body.email);
     const preferredContact = safe(body.preferredContact);
 
-    if (!project_details || !location || (!phone && !email)) {
+    if (!name || !project_details || !location || (!phone && !email)) {
       return new Response(
         JSON.stringify({
           ok: false,
           error:
-            "Missing required fields. Please include project details, location, and either phone or email.",
+            "Missing required fields. Please include your name, project details, location, and either phone or email.",
         }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
@@ -51,11 +52,12 @@ export async function POST(req: Request) {
     const CONTACT_TO = process.env.CONTACT_TO || "";
 
     if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !CONTACT_TO) {
+      console.error("Contact email is not configured.");
       return new Response(
         JSON.stringify({
           ok: false,
           error:
-            "Email is not configured. Check env vars: GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO.",
+            "Message could not be sent yet. Please email info@groovybuilds.com directly.",
         }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
@@ -76,6 +78,8 @@ export async function POST(req: Request) {
     const ownerText = [
       `Service: ${niceService}`,
       preferredContact ? `Preferred Contact: ${preferredContact}` : "",
+      ``,
+      `Name: ${name}`,
       ``,
       `Project Details:`,
       project_details,
@@ -104,7 +108,7 @@ export async function POST(req: Request) {
         to: email,
         subject: "We’ve received your inquiry — Groovy Builds",
         text:
-          "Hello,\n\nThank you for your interest in Groovy Builds.\n\nWe’ve received your inquiry and a member of our team will be in touch within 1–2 business days.\n\n— Groovy Builds\nNashville, TN\n",
+          `Hello ${name},\n\nThank you for your interest in Groovy Builds.\n\nWe’ve received your inquiry and a member of our team will be in touch within 1–2 business days.\n\n— Groovy Builds\nNashville, TN\n`,
       });
     }
 

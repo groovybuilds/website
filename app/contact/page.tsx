@@ -2,7 +2,7 @@ import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-black text-white">
+    <main className="relative min-h-dvh overflow-x-hidden overflow-y-auto bg-black text-white">
       {/* Background layers MUST NOT block clicks */}
       <div className="pointer-events-none absolute inset-0">
         {/* soft vignette */}
@@ -12,7 +12,7 @@ export default function ContactPage() {
       </div>
 
       {/* Content layer ABOVE everything */}
-      <div className="relative z-20 mx-auto w-full max-w-2xl px-5 pb-16 pt-24">
+      <div className="relative z-20 mx-auto w-full max-w-2xl px-5 pb-10 pt-16 sm:pb-16 sm:pt-24">
         <div className="mb-8">
           <h1 className="text-3xl font-semibold tracking-tight">Contact</h1>
           <p className="mt-2 text-sm text-white/70">
@@ -21,7 +21,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md sm:p-5">
           <ContactForm />
         </div>
       </div>

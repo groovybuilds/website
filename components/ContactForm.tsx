@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
 export default function ContactForm() {
+  const [name, setName] = useState("");
+  const [service, setService] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
@@ -13,9 +15,19 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setService(params.get("service") || "");
+  }, []);
+
   const canSubmit = useMemo(() => {
-    return Boolean(email.trim() && location.trim() && details.trim());
-  }, [email, location, details]);
+    return Boolean(
+      name.trim() &&
+        location.trim() &&
+        details.trim() &&
+        (email.trim() || phone.trim())
+    );
+  }, [name, email, phone, location, details]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,6 +41,8 @@ export default function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name,
+          service,
           email,
           phone,
           location,
@@ -48,6 +62,7 @@ export default function ContactForm() {
       }
 
       setStatus("success");
+      setName("");
       setEmail("");
       setPhone("");
       setLocation("");
@@ -62,9 +77,29 @@ export default function ContactForm() {
     <form onSubmit={onSubmit} className="space-y-5">
       {/* Force form to be clickable even if something weird is layered nearby */}
       <div className="relative z-30 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div>
-          <label className="mb-2 block text-sm text-white/80">Email *</label>
+        <div className="sm:col-span-2">
+          <label htmlFor="contact-name" className="mb-2 block text-sm text-white/80">
+            Name *
+          </label>
           <input
+            id="contact-name"
+            style={{ pointerEvents: "auto" }}
+            type="text"
+            autoComplete="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Your name"
+            required
+            className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder:text-white/30 outline-none focus:border-white/20"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="contact-email" className="mb-2 block text-sm text-white/80">
+            Email
+          </label>
+          <input
+            id="contact-email"
             style={{ pointerEvents: "auto" }}
             type="email"
             inputMode="email"
@@ -72,14 +107,16 @@ export default function ContactForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            required
             className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder:text-white/30 outline-none focus:border-white/20"
           />
         </div>
 
         <div>
-          <label className="mb-2 block text-sm text-white/80">Phone</label>
+          <label htmlFor="contact-phone" className="mb-2 block text-sm text-white/80">
+            Phone
+          </label>
           <input
+            id="contact-phone"
             style={{ pointerEvents: "auto" }}
             type="tel"
             inputMode="tel"
@@ -91,9 +128,16 @@ export default function ContactForm() {
           />
         </div>
 
+        <p className="text-xs leading-relaxed text-white/50 sm:col-span-2">
+          Please include at least one contact method: email or phone.
+        </p>
+
         <div className="sm:col-span-2">
-          <label className="mb-2 block text-sm text-white/80">Location *</label>
+          <label htmlFor="contact-location" className="mb-2 block text-sm text-white/80">
+            Location *
+          </label>
           <input
+            id="contact-location"
             style={{ pointerEvents: "auto" }}
             value={location}
             onChange={(e) => setLocation(e.target.value)}
@@ -104,8 +148,11 @@ export default function ContactForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label className="mb-2 block text-sm text-white/80">Project details *</label>
+          <label htmlFor="contact-details" className="mb-2 block text-sm text-white/80">
+            Project details *
+          </label>
           <textarea
+            id="contact-details"
             style={{ pointerEvents: "auto" }}
             value={details}
             onChange={(e) => setDetails(e.target.value)}

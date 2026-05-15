@@ -48,7 +48,7 @@ export default function Navbar() {
           {/* Brand */}
           <a href="/" className="flex flex-col items-center text-center">
             <p className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-white/85 drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]">
-              Luxury Remodeling + Construction
+              Design-Build Remodeling + Construction
             </p>
 
             <img
