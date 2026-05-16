@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Groovy Builds",
-  description: "Luxury Remodeling + Construction",
+  description: "Design + Build",
 };
 
 export default function RootLayout({

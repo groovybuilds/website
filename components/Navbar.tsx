@@ -47,8 +47,9 @@ export default function Navbar() {
         <div className="flex items-start justify-between gap-4">
           {/* Brand */}
           <a href="/" className="flex flex-col items-center text-center">
-            <p className="text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-white/85 drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]">
-              Design-Build Remodeling + Construction
+            <p className="text-center text-[10px] sm:text-[11px] tracking-[0.22em] uppercase leading-relaxed text-white/85 drop-shadow-[0_0_10px_rgba(0,0,0,0.9)]">
+              <span className="block">Design + Build</span>
+              <span className="block">Construction + Remodeling</span>
             </p>
 
             <img
