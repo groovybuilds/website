@@ -2,6 +2,8 @@ import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 
+const CONTACT_TO = "info@groovybuilds.com";
+
 type Payload = {
   service?: string;
   project_details?: string;
@@ -49,9 +51,8 @@ export async function POST(req: Request) {
 
     const GMAIL_USER = process.env.GMAIL_USER || "";
     const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || "";
-    const CONTACT_TO = process.env.CONTACT_TO || "";
 
-    if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !CONTACT_TO) {
+    if (!GMAIL_USER || !GMAIL_APP_PASSWORD) {
       console.error("Contact email is not configured.");
       return new Response(
         JSON.stringify({
