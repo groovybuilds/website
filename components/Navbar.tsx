@@ -139,7 +139,7 @@ export default function Navbar() {
               </div>
 
               <p className="mt-4 text-[11px] leading-relaxed text-white/55">
-                Nashville • Luxury tile + remodels • Thoughtful details
+                Nashville • Design-build remodeling • Thoughtful details
               </p>
             </div>
           </div>
