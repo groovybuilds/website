@@ -1,4 +1,4 @@
-import ContactForm from "@/components/ContactForm";
+import JobTreadForm from "@/components/JobTreadForm";
 
 export default function ContactPage() {
   return (
@@ -22,7 +22,7 @@ export default function ContactPage() {
         </div>
 
         <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md sm:p-5">
-          <ContactForm />
+          <JobTreadForm />
         </div>
       </div>
     </main>
