@@ -81,6 +81,10 @@ export default function HomePage() {
 
       <Navbar />
 
+      <h1 className="sr-only">
+        Groovy Builds Design-Build Construction and Remodeling
+      </h1>
+
       {/* Spacer */}
       <section id="home" className="relative z-10">
         <div className="mx-auto max-w-6xl px-6 pt-40 pb-56" />
