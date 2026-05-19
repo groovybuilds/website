@@ -1,5 +1,21 @@
 // app/shop/page.tsx
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
+
+export const metadata: Metadata = {
+  title: "Shop",
+  description:
+    "Groovy Builds shop coming soon with Groovy merch and small-batch 3D printed tools.",
+  alternates: {
+    canonical: "/shop",
+  },
+  openGraph: {
+    title: "Groovy Builds Shop",
+    description:
+      "Groovy merch and small-batch 3D printed tools from Groovy Builds.",
+    url: "/shop",
+  },
+};
 
 export default function ShopPage() {
   return (
