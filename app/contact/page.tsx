@@ -1,4 +1,20 @@
+import type { Metadata } from "next";
 import JobTreadForm from "@/components/JobTreadForm";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Start a design-build construction or remodeling project with Groovy Builds. Share your kitchen, bathroom, addition, or custom renovation details.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Groovy Builds",
+    description:
+      "Tell Groovy Builds about your design-build construction or remodeling project.",
+    url: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
