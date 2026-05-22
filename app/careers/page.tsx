@@ -36,8 +36,8 @@ export default function CareersPage() {
 
       <Navbar />
 
-      <section className="relative z-20 mx-auto grid w-full max-w-6xl gap-8 px-5 pb-12 pt-36 sm:px-6 sm:pb-16 sm:pt-44 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div className="max-w-xl">
+      <section className="relative z-20 mx-auto grid w-full max-w-6xl gap-8 px-5 pb-12 pt-56 sm:px-6 sm:pb-16 sm:pt-72 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:pt-80">
+        <div className="max-w-xl rounded-lg border border-white/10 bg-black/45 p-5 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-md sm:p-6">
           <p
             className="text-[11px] uppercase tracking-[0.28em] text-white/55"
             style={{ fontFamily: "'Monoton', cursive" }}
@@ -70,7 +70,8 @@ export default function CareersPage() {
             Apply to Work With Us
           </h2>
           <p className="mt-2 text-sm leading-6 text-white/60">
-            Tell us who you are, what you do, and how to reach you.
+            Tell us who you are, what you do, and how to reach you. Resume
+            upload is optional but helpful.
           </p>
           <div className="mt-6">
             <CareersForm />
