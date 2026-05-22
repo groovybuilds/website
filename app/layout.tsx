@@ -5,13 +5,13 @@ import "./globals.css";
 const siteUrl = "https://groovybuilds.com";
 const siteName = "Groovy Builds";
 const siteDescription =
-  "Groovy Builds is a design-build construction and remodeling company creating thoughtful kitchens, bathrooms, additions, and custom residential spaces.";
+  "Groovy Builds is an East Nashville-based design-build construction and remodeling company specializing in kitchens, bathrooms, tile work, additions, and custom residential spaces.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
   title: {
-    default: "Groovy Builds | Design-Build Construction + Remodeling",
+    default: "Groovy Builds | East Nashville Tile, Construction + Remodeling",
     template: "%s | Groovy Builds",
   },
   description: siteDescription,
@@ -22,9 +22,15 @@ export const metadata: Metadata = {
     "home remodeling",
     "kitchen remodeling",
     "bathroom remodeling",
+    "tile work",
+    "tile installation",
     "home additions",
     "custom remodeling",
     "Nashville remodeler",
+    "East Nashville remodeler",
+    "East Nashville construction",
+    "East Nashville tile",
+    "East Nashville remodeling",
   ],
   alternates: {
     canonical: "/",
@@ -34,7 +40,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: "Groovy Builds | Design-Build Construction + Remodeling",
+    title: "Groovy Builds | East Nashville Tile, Construction + Remodeling",
     description: siteDescription,
     images: [
       {
@@ -47,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Groovy Builds | Design-Build Construction + Remodeling",
+    title: "Groovy Builds | East Nashville Tile, Construction + Remodeling",
     description: siteDescription,
     images: ["/brand/watermark.png"],
   },
@@ -83,7 +89,28 @@ export default function RootLayout({
     logo: `${siteUrl}/brand/watermark.png`,
     image: `${siteUrl}/portfolio/1.jpg`,
     description: siteDescription,
-    areaServed: ["Nashville, TN", "Middle Tennessee"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Nashville",
+      addressRegion: "TN",
+      addressCountry: "US",
+    },
+    areaServed: [
+      {
+        "@type": "Place",
+        name: "East Nashville",
+      },
+      {
+        "@type": "City",
+        name: "Nashville",
+        addressRegion: "TN",
+        addressCountry: "US",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Middle Tennessee",
+      },
+    ],
     sameAs: ["https://instagram.com/groovybuilds"],
     makesOffer: [
       {
@@ -105,6 +132,13 @@ export default function RootLayout({
         itemOffered: {
           "@type": "Service",
           name: "Bathroom remodeling",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Tile work",
         },
       },
       {
