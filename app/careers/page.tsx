@@ -60,7 +60,8 @@ export default function CareersPage() {
           </p>
           <p className="mt-4 text-sm leading-6 text-white/64">
             If you are a carpenter, tile setter, remodeler, helper, project lead,
-            or solid subcontractor, send us your info and tell us what kind of
+            solid subcontractor, or somebody that is genuinely interested in
+            getting into the trades send us your info and tell us what kind of
             work you do best.
           </p>
         </div>
