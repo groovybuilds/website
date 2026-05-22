@@ -4,14 +4,14 @@ import JobTreadForm from "@/components/JobTreadForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project with East Nashville-based Groovy Builds. Share your kitchen, bathroom, tile work, addition, or custom remodeling details.",
+    "Start a project with East Nashville-based Groovy Builds. Share your bathroom remodel, shower remodel, custom tiled shower, kitchen, addition, or custom remodeling details.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Groovy Builds",
     description:
-      "Tell East Nashville-based Groovy Builds about your construction, tile, or remodeling project.",
+      "Tell East Nashville-based Groovy Builds about your bathroom remodel, custom tiled shower, construction, tile, or remodeling project.",
     url: "/contact",
   },
 };
