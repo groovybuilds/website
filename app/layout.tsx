@@ -5,13 +5,13 @@ import "./globals.css";
 const siteUrl = "https://groovybuilds.com";
 const siteName = "Groovy Builds";
 const siteDescription =
-  "Groovy Builds is an East Nashville-based design-build construction and remodeling company specializing in kitchens, bathrooms, tile work, additions, and custom residential spaces.";
+  "Groovy Builds is an East Nashville-based design-build construction and remodeling company specializing in bathroom remodels, shower remodels, custom tiled showers, kitchens, additions, and custom residential spaces.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
   title: {
-    default: "Groovy Builds | East Nashville Tile, Construction + Remodeling",
+    default: "Groovy Builds | East Nashville Bathroom Remodels + Custom Tiled Showers",
     template: "%s | Groovy Builds",
   },
   description: siteDescription,
@@ -22,14 +22,30 @@ export const metadata: Metadata = {
     "home remodeling",
     "kitchen remodeling",
     "bathroom remodeling",
+    "bathroom remodels",
+    "bathroom renovation",
+    "shower remodel",
+    "shower remodels",
+    "custom shower remodel",
+    "custom tiled showers",
+    "custom tile showers",
+    "tile shower installation",
+    "walk-in shower remodel",
     "tile work",
     "tile installation",
+    "tile contractor",
     "home additions",
     "custom remodeling",
     "Nashville remodeler",
+    "Nashville bathroom remodel",
+    "Nashville shower remodel",
+    "Nashville tile shower",
     "East Nashville remodeler",
     "East Nashville construction",
+    "East Nashville bathroom remodel",
+    "East Nashville shower remodel",
     "East Nashville tile",
+    "East Nashville tile shower",
     "East Nashville remodeling",
   ],
   alternates: {
@@ -40,7 +56,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: "Groovy Builds | East Nashville Tile, Construction + Remodeling",
+    title: "Groovy Builds | East Nashville Bathroom Remodels + Custom Tiled Showers",
     description: siteDescription,
     images: [
       {
@@ -53,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Groovy Builds | East Nashville Tile, Construction + Remodeling",
+    title: "Groovy Builds | East Nashville Bathroom Remodels + Custom Tiled Showers",
     description: siteDescription,
     images: ["/brand/watermark.png"],
   },
@@ -131,7 +147,21 @@ export default function RootLayout({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Bathroom remodeling",
+          name: "Bathroom remodels",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Shower remodels",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Custom tiled showers",
         },
       },
       {
