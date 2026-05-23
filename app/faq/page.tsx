@@ -57,9 +57,14 @@ const faqs = [
       "Yes! Groovy Builds is a full-service Design-Build company and would be happy to assist you throughout the planning, design, and construction process. We offer space planning, finish selection guidance, and photorealistic 3D renderings to help visualize your project before construction begins. Whether you already have a clear vision or need help developing one, we’re here to guide the process from concept to completion.",
   },
   {
-    question: "How do estimates work?",
+    question: "How do payments work?",
     answer:
-      "A real estimate depends on scope. Size, finishes, site conditions, and material choices all affect the number. We try to be clear about what’s included, what’s not included, and where allowances or unknowns may exist.",
+      "Payment schedules vary depending on project size and scope, but most projects are broken into phases with progress payments throughout construction. An initial deposit is typically required to secure scheduling, begin planning, and cover early material and administrative costs. Larger projects are commonly structured around milestones such as demolition, rough-ins, tile installation, cabinetry, or completion of major phases of work. Any allowances or selection upgrades are reconciled as final decisions are made during the project. We aim to keep the payment process straightforward and transparent, with clear communication regarding upcoming invoices, selections, and project costs throughout construction.",
+  },
+  {
+    question: "How long do projects typically take?",
+    answer:
+      "Project timelines depend on scope, material lead times, existing conditions, permitting, and the overall level of finish involved. Most bathroom remodels are completed within approximately 4–8 weeks of active construction once materials and selections are finalized. Kitchens and larger interior remodels often require 6–12+ weeks depending on cabinetry, layout modifications, inspections, and overall project complexity. Additions and larger-scale renovations can vary significantly in timeline due to structural work, permitting, engineering, utility coordination, and design complexity. Because of this, we typically do not provide timeline estimates for additions until we have a clear understanding of the project scope and existing conditions. Before construction begins, we review the anticipated schedule, project phases, and sequencing so expectations are clear from the start.",
   },
   {
     question: "How do you handle changes once the project starts?",
