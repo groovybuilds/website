@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Contact", href: "/contact" },
-  { label: "FAQ", href: "/faq" },
   { label: "Careers", href: "/careers" },
   { label: "Shop", href: "/shop" },
   {
@@ -14,6 +13,7 @@ const NAV_ITEMS = [
     href: "https://instagram.com/groovybuilds",
     external: true,
   },
+  { label: "FAQ", href: "/faq" },
   {
     label: "Reviews",
     href: "https://g.page/r/CcNki1lgs9hwEAE/review",
