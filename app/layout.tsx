@@ -85,9 +85,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/icon.svg?v=groovy-builds", type: "image/svg+xml" }],
+    shortcut: [{ url: "/icon.svg?v=groovy-builds", type: "image/svg+xml" }],
+    apple: [{ url: "/icon.svg?v=groovy-builds", type: "image/svg+xml" }],
   },
   category: "construction",
 };
