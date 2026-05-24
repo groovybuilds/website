@@ -5,23 +5,23 @@ import Navbar from "@/components/Navbar";
 const processSteps = [
   {
     title: "Initial Inquiry",
-    body: "Reach out, tell us about your project — what you’re planning, where the property is located, and what goals you have for the space. Inspiration photos, rough investment range, and timeline expectations are all helpful in determining project fit and scope.",
+    body: "Reach out and tell us about your project — what you’re planning, where the property is located, and what goals you have for the space. Inspiration photos, timeline expectations, and a general investment range are all helpful in determining project fit and overall scope.",
   },
   {
-    title: "Project Consultation",
-    body: "We’ll discuss the project in more detail, including layout ideas, level of finish, construction considerations, budget expectations, and overall feasibility. This helps determine the best path forward and whether we’re the right fit for the project.",
+    title: "Site Consultation & Scope Development",
+    body: "We visit the property to evaluate existing conditions, take measurements, discuss layout direction, review construction considerations, and better understand the goals for the space. From there, we begin developing a detailed scope of work tailored to the home and project priorities.",
   },
   {
-    title: "Site Visit + Scope Development",
-    body: "If the project moves forward, we’ll visit the property to evaluate existing conditions, take measurements, discuss priorities, and begin developing a detailed scope of work tailored to the space and project goals.",
+    title: "Pre-Construction & Project Planning",
+    body: "Once the scope is established, we develop project pricing based on labor, materials, selections, scheduling, logistics, and construction complexity. Projects involving extensive design development, layout revisions, or finish coordination may move into a dedicated pre-construction phase prior to final approval.",
   },
   {
-    title: "Pre-Construction + Estimating",
-    body: "Once the scope is established, we assemble project pricing based on labor, materials, selections, logistics, timeline, and construction complexity. Projects involving design, layout development, or extensive planning may move into a dedicated pre-construction phase prior to final pricing.",
+    title: "Construction & Project Management",
+    body: "During construction, we maintain a clean and organized jobsite, coordinate trades and materials, communicate consistently, and address issues proactively to keep the project moving efficiently and professionally from start to finish.",
   },
   {
-    title: "Construction + Project Management",
-    body: "During construction, we maintain a clean and organized jobsite, communicate consistently, coordinate scheduling and materials, and address issues proactively to keep the project moving efficiently and professionally.",
+    title: "Final Walkthrough & Warranty",
+    body: "Before project closeout, we review the completed work together, address remaining punch-list items, and remain available afterward should anything require attention.",
   },
 ];
 
