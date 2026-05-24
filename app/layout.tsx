@@ -6,6 +6,7 @@ const siteUrl = "https://groovybuilds.com";
 const siteName = "Groovy Builds";
 const siteDescription =
   "Groovy Builds is an East Nashville-based design-build construction and remodeling company specializing in bathroom remodels, shower remodels, custom tiled showers, kitchens, additions, and custom residential spaces.";
+const socialImage = "/opengraph-image";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -60,10 +61,10 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/brand/watermark.png",
-        width: 1304,
-        height: 639,
-        alt: "Groovy Builds",
+        url: socialImage,
+        width: 1200,
+        height: 630,
+        alt: "Groovy Builds bathroom remodel with a freestanding tub and custom tile.",
       },
     ],
   },
@@ -71,7 +72,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Groovy Builds | East Nashville Bathroom Remodels + Custom Tiled Showers",
     description: siteDescription,
-    images: ["/brand/watermark.png"],
+    images: [
+      {
+        url: socialImage,
+        alt: "Groovy Builds bathroom remodel with a freestanding tub and custom tile.",
+      },
+    ],
   },
   robots: {
     index: true,
