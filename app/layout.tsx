@@ -91,8 +91,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon.ico?v=2", sizes: "64x64" },
+      { url: "/icon.svg?v=2", type: "image/svg+xml" },
+    ],
+    shortcut: [{ url: "/favicon.ico?v=2" }],
     apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
   category: "construction",
