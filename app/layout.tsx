@@ -6,7 +6,7 @@ const siteUrl = "https://groovybuilds.com";
 const siteName = "Groovy Builds";
 const siteDescription =
   "Groovy Builds is an East Nashville-based design-build construction and remodeling company specializing in bathroom remodels, shower remodels, custom tiled showers, kitchens, additions, and custom residential spaces.";
-const socialImage = "/social-preview?gb-social-v3=1";
+const socialImage = "/share-card?gb-card-v1=1";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
