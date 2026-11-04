@@ -28,7 +28,7 @@ const processSteps = [
 const costRanges = [
   {
     title: "Bathroom Remodels",
-    body: "Bathroom remodeling projects start at $35,000 and can exceed $75,000 depending on size, layout modifications, tile selections, plumbing fixtures, and overall complexity.",
+    body: "Bathroom remodeling projects start at $40,000 and can exceed $75,000 depending on size, layout modifications, tile selections, plumbing fixtures, and overall complexity.",
   },
   {
     title: "Kitchen Remodels",
