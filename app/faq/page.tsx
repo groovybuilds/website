@@ -28,7 +28,7 @@ const processSteps = [
 const costRanges = [
   {
     title: "Bathroom Remodels",
-    body: "Bathroom remodeling projects start at $40,000 and can exceed $75,000 depending on size, layout modifications, tile selections, plumbing fixtures, and overall complexity.",
+    body: "Complete bathroom remodels start at $48,000. Final pricing depends on room size, layout changes, material and fixture selections, and overall scope. Custom built-in shelving, tiled ceilings, and other specialty details are priced for the additional work involved.",
   },
   {
     title: "Kitchen Remodels",
@@ -64,7 +64,7 @@ const faqs = [
   {
     question: "How long do projects typically take?",
     answer:
-      "Project timelines depend on scope, material lead times, existing conditions, permitting, and the overall level of finish involved. Most bathroom remodels are completed within approximately 4–8 weeks of active construction once materials and selections are finalized. Kitchens and larger interior remodels often require 6–12+ weeks depending on cabinetry, layout modifications, inspections, and overall project complexity. Additions and larger-scale renovations can vary significantly in timeline due to structural work, permitting, engineering, utility coordination, and design complexity. Because of this, we typically do not provide timeline estimates for additions until we have a clear understanding of the project scope and existing conditions. Before construction begins, we review the anticipated schedule, project phases, and sequencing so expectations are clear from the start.",
+      "Project timelines depend on scope, material lead times, existing conditions, permitting, and the overall level of finish involved. Typical complete bathroom remodels are completed in about four weeks of active construction once materials and selections are ready. Custom features, scope changes, and site conditions can extend the schedule. Kitchens and larger interior remodels often require 6–12+ weeks depending on cabinetry, layout modifications, inspections, and overall project complexity. Additions and larger-scale renovations can vary significantly in timeline due to structural work, permitting, engineering, utility coordination, and design complexity. Because of this, we typically do not provide timeline estimates for additions until we have a clear understanding of the project scope and existing conditions. Before construction begins, we review the anticipated schedule, project phases, and sequencing so expectations are clear from the start.",
   },
   {
     question: "How do you handle changes once the project starts?",
