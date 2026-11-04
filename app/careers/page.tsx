@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Apply to work with Groovy Builds, an East Nashville design-build construction and remodeling company.",
+    "Apply to work with Groovy Builds, a Nashville-area design-build construction and remodeling company.",
   alternates: {
     canonical: "/careers",
   },
@@ -53,7 +53,7 @@ export default function CareersPage() {
             the job right.
           </p>
           <p className="mt-4 text-sm leading-6 text-white/64">
-            Groovy Builds is growing in East Nashville and the surrounding area.
+            Groovy Builds is growing across Nashville, Franklin, Mt. Juliet, and Hendersonville.
             The work ranges from remodels and additions to custom residential
             projects, but the standard stays the same: clean work, clear
             communication, respect for the home, and a job you can stand behind.

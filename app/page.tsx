@@ -82,7 +82,7 @@ export default function HomePage() {
       <Navbar />
 
       <h1 className="sr-only">
-        Groovy Builds East Nashville Tile, Construction, and Remodeling
+        Groovy Builds Nashville Renovations, Additions, and Custom Homes
       </h1>
 
       {/* Spacer */}

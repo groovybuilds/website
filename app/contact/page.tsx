@@ -4,14 +4,14 @@ import JobTreadForm from "@/components/JobTreadForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project with East Nashville-based Groovy Builds. Share your bathroom remodel, shower remodel, custom tiled shower, kitchen, addition, or custom remodeling details.",
+    "Start a project with Groovy Builds. Share your bathroom remodel, shower remodel, custom tiled shower, kitchen, addition, or custom remodeling details.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Groovy Builds",
     description:
-      "Tell East Nashville-based Groovy Builds about your bathroom remodel, custom tiled shower, construction, tile, or remodeling project.",
+      "Tell Groovy Builds about your bathroom remodel, custom tiled shower, construction, tile, or remodeling project.",
     url: "/contact",
   },
 };
@@ -34,6 +34,10 @@ export default function ContactPage() {
           <p className="mt-2 text-sm text-white/70">
             Tell us a bit about your project. We’ll get back to you within{" "}
             <span className="text-white">1–2 business days</span>.
+          </p>
+          <p className="mt-3 text-sm text-white/70">
+            Serving Nashville, Franklin, Mt. Juliet, and Hendersonville.
+            Projects start at $35,000.
           </p>
         </div>
 

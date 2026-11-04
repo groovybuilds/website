@@ -141,7 +141,7 @@ export default function Navbar() {
               </div>
 
               <p className="mt-4 text-[11px] leading-relaxed text-white/55">
-                East Nashville • Design-build remodeling • Thoughtful details
+                Nashville • Franklin • Mt. Juliet • Hendersonville
               </p>
             </div>
           </div>

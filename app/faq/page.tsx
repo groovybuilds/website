@@ -28,7 +28,7 @@ const processSteps = [
 const costRanges = [
   {
     title: "Bathroom Remodels",
-    body: "Most of our bathroom remodels fall between $25,000–$75,000+ depending on size, layout modifications, tile selections, plumbing fixtures, and overall complexity.",
+    body: "Bathroom remodeling projects start at $35,000 and can exceed $75,000 depending on size, layout modifications, tile selections, plumbing fixtures, and overall complexity.",
   },
   {
     title: "Kitchen Remodels",
@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "What areas does Groovy Builds service?",
     answer:
-      "We’re based in East Nashville and work throughout Nashville and Middle Tennessee.",
+      "We serve Nashville, Franklin, Mt. Juliet, Hendersonville, and surrounding communities.",
   },
   {
     question: "What kind of projects do you take on?",
@@ -101,7 +101,7 @@ const faqs = [
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Learn about the Groovy Builds process, project costs, estimates, design-build planning, 3D renderings, remodeling, custom tile work, permits, and starting a project in East Nashville.",
+    "Learn about the Groovy Builds process, project costs, estimates, design-build planning, 3D renderings, remodeling, custom tile work, permits, and starting a project in Nashville, Franklin, Mt. Juliet, or Hendersonville.",
   alternates: {
     canonical: "/faq",
   },

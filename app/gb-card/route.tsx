@@ -90,7 +90,7 @@ export function GET() {
               color: "rgba(255,255,255,0.82)",
             }}
           >
-            East Nashville • Bathrooms • Kitchens • Additions
+            Nashville & Surrounding Communities
           </div>
         </div>
       </div>

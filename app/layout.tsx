@@ -5,14 +5,14 @@ import "./globals.css";
 const siteUrl = "https://groovybuilds.com";
 const siteName = "Groovy Builds";
 const siteDescription =
-  "Groovy Builds is an East Nashville-based design-build construction and remodeling company specializing in bathroom remodels, shower remodels, custom tiled showers, kitchens, additions, and custom residential spaces.";
-const socialImage = "/gb-card?gb-card-v2=1";
+  "Groovy Builds provides design-build renovations, additions, custom homes, kitchens, and bathrooms across Nashville, Franklin, Mt. Juliet, and Hendersonville.";
+const socialImage = "/gb-card?gb-card-v3=1";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
   title: {
-    default: "Groovy Builds | East Nashville Bathroom Remodels + Custom Tiled Showers",
+    default: "Groovy Builds | Nashville Renovations, Additions + Custom Homes",
     template: "%s | Groovy Builds",
   },
   description: siteDescription,
@@ -41,13 +41,6 @@ export const metadata: Metadata = {
     "Nashville bathroom remodel",
     "Nashville shower remodel",
     "Nashville tile shower",
-    "East Nashville remodeler",
-    "East Nashville construction",
-    "East Nashville bathroom remodel",
-    "East Nashville shower remodel",
-    "East Nashville tile",
-    "East Nashville tile shower",
-    "East Nashville remodeling",
   ],
   alternates: {
     canonical: "/",
@@ -57,7 +50,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: "Groovy Builds | East Nashville Bathroom Remodels + Custom Tiled Showers",
+    title: "Groovy Builds | Nashville Renovations, Additions + Custom Homes",
     description: siteDescription,
     images: [
       {
@@ -70,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Groovy Builds | East Nashville Bathroom Remodels + Custom Tiled Showers",
+    title: "Groovy Builds | Nashville Renovations, Additions + Custom Homes",
     description: siteDescription,
     images: [
       {
@@ -126,10 +119,12 @@ export default function RootLayout({
       addressCountry: "US",
     },
     areaServed: [
-      {
-        "@type": "Place",
-        name: "East Nashville",
-      },
+      ...["Franklin", "Mt. Juliet", "Hendersonville"].map((name) => ({
+        "@type": "City",
+        name,
+        addressRegion: "TN",
+        addressCountry: "US",
+      })),
       {
         "@type": "City",
         name: "Nashville",
