@@ -37,7 +37,7 @@ export default function ContactPage() {
           </p>
           <p className="mt-3 text-sm text-white/70">
             Serving Nashville, Franklin, Mt. Juliet, and Hendersonville.
-            Projects start at $35,000.
+            Projects start at $40,000.
           </p>
         </div>
 
