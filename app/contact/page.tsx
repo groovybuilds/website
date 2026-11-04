@@ -37,7 +37,7 @@ export default function ContactPage() {
           </p>
           <p className="mt-3 text-sm text-white/70">
             Serving Nashville, Franklin, Mt. Juliet, and Hendersonville.
-            Projects start at $40,000.
+            Complete bathroom remodels start at $48,000. Other projects have a $40,000 minimum.
           </p>
         </div>
 
