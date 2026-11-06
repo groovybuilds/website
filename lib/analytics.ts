@@ -27,7 +27,7 @@ export async function getAnalytics(
 ): Promise<{ data?: Analytics; error?: string }> {
   const session = readSession((await cookies()).get(sessionCookie)?.value);
   if (!session) return { error: "Sign in to view analytics." };
-  const property = process.env.GA_PROPERTY_ID;
+  const property = process.env.GA_PROPERTY_ID || "562290827";
   if (!property || !/^\d+$/.test(property))
     return {
       error:

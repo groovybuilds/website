@@ -11,7 +11,7 @@ const env = {
   GOOGLE_CLIENT_SECRET: "private-test-secret",
   ADMIN_GOOGLE_SUB: "owner",
   ADMIN_APP_ORIGIN: "https://groovybuilds.com",
-  GA_PROPERTY_ID: "",
+  GA_PROPERTY_ID: "not-configured",
 };
 let server;
 before(async () => {

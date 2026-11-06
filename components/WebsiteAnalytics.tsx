@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 declare global {
@@ -9,21 +9,10 @@ declare global {
 }
 export default function WebsiteAnalytics() {
   const pathname = usePathname();
-  const configured = useRef(false);
-  const lastPath = useRef("");
   useEffect(() => {
-    const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-    if (
-      !id ||
-      !/^G-[A-Z0-9]+$/.test(id) ||
-      pathname.startsWith("/admin") ||
-      !window.gtag
-    )
-      return;
-    if (!configured.current) {
-      window.gtag("config", id, { send_page_view: false });
-      configured.current = true;
-    }
+    const id = "G-Z4LMLHVXL2";
+    if (pathname.startsWith("/admin") || !window.gtag) return;
+    // The shared Google tag handles page views, including history navigation.
     const location = new URL(pathname, window.location.origin);
     const search = new URLSearchParams(window.location.search);
     for (const key of [
@@ -44,10 +33,6 @@ export default function WebsiteAnalytics() {
         send_to: id,
         page_location: location.href,
       });
-    if (lastPath.current !== pathname) {
-      event("page_view");
-      lastPath.current = pathname;
-    }
     const click = (e: MouseEvent) => {
       const a = (e.target as Element)?.closest?.("a");
       if (a?.getAttribute("href")?.startsWith("tel:")) event("phone_click");
