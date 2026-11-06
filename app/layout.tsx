@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import WebsiteAnalytics from "@/components/WebsiteAnalytics";
 
 const siteUrl = "https://groovybuilds.com";
 const siteName = "Groovy Builds";
@@ -211,7 +212,7 @@ export default function RootLayout({
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'AW-18478941993');`,
+if (!window.location.pathname.startsWith('/admin')) gtag('config', 'AW-18478941993');`,
           }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -229,7 +230,7 @@ gtag('config', 'AW-18478941993');`,
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body><WebsiteAnalytics />{children}</body>
     </html>
   );
 }
