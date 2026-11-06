@@ -211,7 +211,10 @@ export default function RootLayout({
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'AW-18478941993');`,
+if (!window.location.pathname.startsWith('/admin')) {
+  gtag('config', 'AW-18478941993');
+  gtag('config', 'G-Z4LMLHVXL2');
+}`,
           }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
