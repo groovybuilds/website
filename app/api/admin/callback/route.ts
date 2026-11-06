@@ -5,6 +5,7 @@ import {
   equal,
   flowCookie,
   origin,
+  isOwner,
   seal,
   sessionCookie,
   unseal,
@@ -70,7 +71,7 @@ export async function GET(request: NextRequest) {
     if (!identityResponse.ok) return finish("/admin?error=signin");
     const identity = await identityResponse.json();
     if (
-      identity.sub !== process.env.ADMIN_GOOGLE_SUB ||
+      !isOwner(identity.sub, identity.email) ||
       identity.email_verified !== true ||
       typeof identity.email !== "string"
     )

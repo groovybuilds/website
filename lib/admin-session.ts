@@ -30,9 +30,20 @@ export function configured() {
   return Boolean(
     process.env.GOOGLE_CLIENT_ID &&
     process.env.GOOGLE_CLIENT_SECRET &&
-    process.env.ADMIN_GOOGLE_SUB &&
+    (process.env.ADMIN_GOOGLE_SUB || ownerEmail()) &&
     /^[a-f0-9]{64}$/i.test(process.env.ADMIN_SESSION_SECRET || ""),
   );
+}
+function ownerEmail() {
+  const email = process.env.ADMIN_GOOGLE_EMAIL?.trim().toLowerCase();
+  // Only Google-owned Gmail addresses can use email-based authorization.
+  return email && /^[a-z0-9._%+-]+@gmail\.com$/.test(email) ? email : null;
+}
+export function isOwner(sub: unknown, email: unknown) {
+  if (typeof sub !== "string" || !sub || typeof email !== "string") return false;
+  if (process.env.ADMIN_GOOGLE_SUB) return sub === process.env.ADMIN_GOOGLE_SUB;
+  const allowed = ownerEmail();
+  return !!allowed && email.toLowerCase() === allowed;
 }
 export function origin() {
   const value = process.env.ADMIN_APP_ORIGIN || "https://groovybuilds.com";
@@ -80,7 +91,7 @@ export function readSession(value?: string): AdminSession | null {
   const s = unseal(value) as Partial<AdminSession> | null;
   if (
     !s ||
-    s.sub !== process.env.ADMIN_GOOGLE_SUB ||
+    !isOwner(s.sub, s.email) ||
     typeof s.email !== "string" ||
     typeof s.accessToken !== "string" ||
     !s.accessToken ||

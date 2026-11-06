@@ -55,3 +55,16 @@ test("state comparisons reject mismatches and unequal lengths", () => {
   assert.equal(equal("abc", ""), false);
   assert.equal(unseal("a".repeat(6001)), null);
 });
+
+test("Gmail owner allowlist rejects other users and non-Google addresses", () => {
+  delete process.env.ADMIN_GOOGLE_SUB;
+  process.env.ADMIN_GOOGLE_EMAIL = "groovybuilds@gmail.com";
+  assert.equal(configured(), true);
+  assert.ok(readSession(seal({...session(), email: "groovybuilds@gmail.com"})));
+  assert.equal(readSession(seal({...session(), email: "other@gmail.com"})), null);
+  assert.equal(readSession(seal({...session(), sub: "", email: "groovybuilds@gmail.com"})), null);
+  process.env.ADMIN_GOOGLE_EMAIL = "owner@example.com";
+  assert.equal(configured(), false);
+  delete process.env.ADMIN_GOOGLE_EMAIL;
+  process.env.ADMIN_GOOGLE_SUB = "owner-id";
+});

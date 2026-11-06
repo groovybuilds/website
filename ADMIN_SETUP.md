@@ -7,14 +7,14 @@
 1. Confirmed existing property: `562290827`, web stream `16266469618`, measurement ID `G-Z4LMLHVXL2`. The sitewide tag is connected to this stream. No new property is needed.
 2. In the same Google Cloud project, enable **Google Analytics Data API**. Configure the OAuth consent screen and a Web Application OAuth client with `openid`, `email`, and `https://www.googleapis.com/auth/analytics.readonly`. If using Testing mode, add the owner as a test user. Use an Internal app only if available for the owner's Workspace organization. Follow Google's publishing/verification requirements if expanding beyond test users.
 3. Register this exact redirect URI: `https://groovybuilds.com/api/admin/callback`. Use the canonical domain when signing in. Add a separate localhost URI for development only.
-4. Obtain the owner's stable Google subject ID (`sub`) from Google's authenticated OpenID Connect userinfo endpoint using the owner's Google account (for example via Google's OAuth Playground with the OpenID/email scopes). This is an account ID, not an email or access token. Verify the account before setting it. There is no first-user registration or public claim flow.
+4. This deployment uses `ADMIN_GOOGLE_EMAIL=groovybuilds@gmail.com`. Email authorization is restricted to verified Google-owned Gmail addresses. Alternatively, obtain the owner's stable Google subject ID (`sub`) from Google's authenticated OpenID Connect userinfo endpoint using the owner's Google account (for example via Google's OAuth Playground with the OpenID/email scopes). This is an account ID, not an email or access token. Verify the account before setting it. Set `ADMIN_GOOGLE_EMAIL` to the owner Gmail account or use `ADMIN_GOOGLE_SUB` for a stable account ID. There is no first-user registration or public claim flow.
 5. Set these environment variables in the **Vercel project serving groovybuilds.com**:
 
 | Variable                        | Value                                                          |
 | ------------------------------- | -------------------------------------------------------------- |
 | `GOOGLE_CLIENT_ID`              | Web OAuth client ID                                            |
 | `GOOGLE_CLIENT_SECRET`          | OAuth client secret, server-only                               |
-| `ADMIN_GOOGLE_SUB`              | Owner's exact stable Google account ID                         |
+| `ADMIN_GOOGLE_SUB` (optional when Gmail allowlist is set)              | Owner's exact stable Google account ID                         |
 | `ADMIN_SESSION_SECRET`          | 32 cryptographically random bytes encoded as 64 hex characters |
 | `ADMIN_APP_ORIGIN`              | `https://groovybuilds.com`                                     |
 | `GA_PROPERTY_ID`                | Numeric GA4 property ID                                        |
