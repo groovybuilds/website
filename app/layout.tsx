@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import WebsiteAnalytics from "@/components/WebsiteAnalytics";
 
 const siteUrl = "https://groovybuilds.com";
 const siteName = "Groovy Builds";
@@ -232,7 +233,7 @@ if (!window.location.pathname.startsWith('/admin')) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body><WebsiteAnalytics />{children}</body>
     </html>
   );
 }
